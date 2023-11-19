@@ -102,6 +102,16 @@ namespace MSIT153Site.Controllers
                 
 
         }
-
+        public IActionResult CheckAccount(MemberViewModel vm)
+        {
+            if (_context.Members.Any(p => p.Name == vm.name))
+            {
+                return Content("此名稱已被使用");
+            }
+            else
+            {
+                return Content("此名稱可使用");
+            }
+        }
     }
 }
