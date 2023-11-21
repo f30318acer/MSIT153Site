@@ -44,7 +44,11 @@ namespace MSIT153Site.Controllers
         {
             return View();
         }
-        public IActionResult Address()
+		public IActionResult hw3()
+		{
+			return View();
+		}
+		public IActionResult Address()
         {
             return View();
         }

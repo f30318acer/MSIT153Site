@@ -88,6 +88,22 @@ namespace MSIT153Site.Controllers
             return Json(road);
             //https://localhost:7202/API/road?SiteId=%E9%87%91%E9%96%80%E7%B8%A3%E9%87%91%E6%B9%96%E9%8E%AE
         }
+
+        public IActionResult city()
+        {
+            var cities = _context.Address.Select(c => c.City).Distinct();
+            return Json(cities);
+        }
+        public IActionResult cube(string city)
+        {
+            var road = _context.Address.Where(c => c.City == city).Select(c => c.SiteId).Distinct();
+            return Json(road);
+        }
+        public IActionResult road(string cube)
+        {
+            var road = _context.Address.Where(c => c.SiteId == cube).Select(c => c.Road).Distinct();
+            return Json(road);
+        }
         //讀取資料庫中二進位的圖片
         public IActionResult GetImageByte(int id = 1)
         {
