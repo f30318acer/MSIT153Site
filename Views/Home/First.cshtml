@@ -14,26 +14,27 @@
     <script>
         //console.log(spots);
         //找到要控制的對象
-        const btn = document.querySelector('#buttonStart');
+        const btn = document.querySelector('#buttonStart'); //找到 ID= buttonStart的按鈕
         const btnStop = document.querySelector('#buttonStop');
-        const theDiv = document.querySelector('#div1');
+        const theDiv = document.querySelector('#div1');//找到 ID= div1的輸入框
         const imgLoading = document.querySelector('#img1');
     //步驟一建立Ajax物件
-            const xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest(); 
 
         btnStop.addEventListener('click', () => {
            xhr.abort();//停止ajax程式
         })
         //在甚麼情況下(event)
         btn.addEventListener('click',()=>{
-            //做甚麼事 Ajax        
-
+            //做甚麼事 Ajax
+            //theDiv.innerHTML="button click!!"//輸入框輸出 button click!!
         
             //步驟二對伺服器發出要求 > controller/action
             //@Url.Action("Index","api")//隨者時間地點改變，執行後會去抓到正確的地方。
             //@Url.Content("~/api/index")
-             //   xhr.open('GET', '/api/Index?name=Jack&age=30');
+            //xhr.open('GET', '~/api/Index?name=Jack&age=30');
             //xhr.open('GET', '/@Url.Content("~/api/index")?name=Jack&age=30');
+           
 
             xhr.addEventListener('loadstart', () => {
                 theDiv.innerHTML += "Ajax開始<br />"//div 出現ajax開始
@@ -51,7 +52,7 @@
             })
 
             xhr.addEventListener('load', () => {
-                //步驟三接收伺服器回傳的資料
+                //步驟三接收(load)伺服器回傳的資料
                 const data = xhr.responseText;
                 //步驟四讀取資料
                 //步驟五顯示資料
@@ -70,7 +71,7 @@
 
 
            xhr.open('GET', '@Url.Content("~/api/index")?name=Jack&age=30');
-           //xhr.timeout = 3000; //要設定在open()方法之後
+           xhr.timeout = 4000; //要設定在open()方法之後
            xhr.send();
 
           
