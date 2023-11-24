@@ -4,7 +4,7 @@
 
 
 @*所有網頁上的p標籤資料會字體顏色變成橘色這裡會被放在layout那裏*@
-@section Styles{
+@section Styles {
     <style>
         p {
             color: tomato
@@ -44,31 +44,34 @@
             </tr>
         </thead>
         <tbody>
+           
         </tbody>
     </table>
 </div>
 
-@section Scripts{
+@section Scripts {
     <script>
-        //const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
-        //{ "name": "Jack", "workYears": 5, "salary": 40000 },
-        //{ "name": "Mary", "workYears": 7, "salary": 45000 }];
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
         //=========================================================================
 
         //emps = [];//陣列結構
-        // console.log(emps[1]);//讀取陣列第一筆
+        console.log(emps[1]);//讀取陣列第一筆 //object
 
         //emps = [1]={};//物件
-        // console.log(emps[1].name);//讀取物件第一筆
+        console.log(emps[1].name);//讀取物件第一筆 Jack
         //=========================================================================
 
-        //for(let i=0,max=emps.length;i<max;i++)
-        // {
-        //    console.log(emps[i].name);
-        //    console.log(emps[i].workYears);
-        //    console.log(emps[i].salary);
-        // }
+        for (let i = 0, max = emps.length; i < max; i++)
+        {
+            console.log(emps[i].name);
+            console.log(emps[i].workYears);
+            console.log(emps[i].salary);
+        }
         //=========================================================================
+
+
         var emp =
         {
             "employees": [
@@ -78,13 +81,30 @@
             ]
         };
 
-        //emp = {} x emp.length  v emp.employees
-        //emp.employees = [] emp.employees[0]
-        //emp.employees[0] => {} emp.employees[0].name
-        //     for(let i=0,max=emp.employees.length;i<max;i++){
-        // //        //DOM
+        // emp = {} x emp.length  v emp.employees
+        // emp.employees = [] emp.employees[0]
+        // emp.employees[0] => {} emp.employees[0].name
+        for (let i = 0, max = emp.employees.length; i < max; i++) {
+            //DOM
+            // const cell1 = document.createElement("td");//<td></td>
+            // const txt1 = document.createTextNode(emp.employees[i].name) //Tom
+            // cell1.appendChild(txt1);//<td>Tom</td>
+            // const cell2 = document.createElement("td");//<td></td>
+            // const txt2 = document.createTextNode(emp.employees[i].workYears) //Tom
+            // cell2.appendChild(txt2);//<td>Tom</td>
+            // const cell3 = document.createElement("td"); //<td></td>
+            // const txt3 = document.createTextNode(emp.employees[i].salary) //Tom
+            // cell3.appendChild(txt3);//<td>Tom</td>
+            // const row = document.createElement("tr"); //<td></td>
+            // row.appendChild(cell1);
+            // row.appendChild(cell2);
+            // row.appendChild(cell3);
+
+            // document.querySelector('#tableEmployee>tbody').appendChild(row);
+      
+               
         // const cell1 = document.createElement("td");  //<td></td>
-        // const txt1 = document.createTextNode(emp.employees[i].name) //Tom
+        // const txt1 = document.createTextNode(emp.employees[i].name)
         // cell1.appendChild(txt1);  //<td>Tom</td>
         // const cell2 = document.createElement("td");  //<td></td>
         // const txt2 = document.createTextNode(emp.employees[i].workYears) //Tom
@@ -98,30 +118,31 @@
         // row.appendChild(cell3);
 
         // document.querySelector('#tableEmployee>tbody').appendChild(row);
-        //     }
+            }
 
+        
         // javascript陣列
-        //value放的是我們的物件
-        // emp.employees.map((value,index,array)=> {
-        //     console.log(array)
-        // })
+        // value放的是我們的物件
+        emp.employees.map((value,index,array)=> {
+            console.log(array)
+        })
 
-        const datas = emp.employees.map(employee => {
+        const datas = emp.employees.map(employee => { //map方法將employees物件資料讀出來給employee 將資料解剖出來將數字帶入下列參數
             const { name, workYears, salary } = employee;
-            //反單引號裡面可以放字串的
+            // 反單引號裡面可以放字串的
             return (
                 `
-                        <tr>
-                                <td>${name}</td>
-                                <td>${workYears}</td>
-                                <td>${salary}</td>
-                        </tr>
-                `
+                                <tr>
+                                        <td>${name}</td>
+                                        <td>${workYears}</td>
+                                        <td>${salary}</td>
+                                </tr>
+                 `
             )
         })
-        //console.log(datas)//陣列資料
+        console.log(datas)//陣列資料
 
-        //join方法=>
+       // join方法=>
         document.querySelector('#tableEmployee>tbody').innerHTML = datas.join("");
 
     </script>
