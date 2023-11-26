@@ -19,7 +19,7 @@
         const theDiv = document.querySelector('#div1');//找到 ID= div1的輸入框
         const imgLoading = document.querySelector('#img1');
     //步驟一建立Ajax物件
-            const xhr = new XMLHttpRequest(); 
+        const xhr = new XMLHttpRequest(); 
 
         btnStop.addEventListener('click', () => {
            xhr.abort();//停止ajax程式
@@ -38,8 +38,8 @@
 
             xhr.addEventListener('loadstart', () => {
                 theDiv.innerHTML += "Ajax開始<br />"//div 出現ajax開始
-                imgLoading.style.display = "inline";
-                btn.setAttribute('disabled', 'disabled'); //點擊完不能按
+                imgLoading.style.display = "inline";//圖片顯示出來
+                btn.setAttribute('disabled', 'disabled'); //點擊完不能按//標籤加上屬性
                 btn.innerHTML = "Loading...";//ajax按鈕變成Loading....
 
             })
@@ -71,7 +71,7 @@
 
 
            xhr.open('GET', '@Url.Content("~/api/index")?name=Jack&age=30');
-           xhr.timeout = 4000; //要設定在open()方法之後
+           xhr.timeout = 3000; //要設定在open()方法之後
            xhr.send();
 
           

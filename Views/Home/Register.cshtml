@@ -9,7 +9,7 @@
         <form id="memberForm" method="post" action="~/api/register">
             <div class="mb-3">
                 <label for="inputName" class="form-label">姓名</label>
-                <input type="text" class="form-control" id="inputName" name="name">
+                <input type="text" class="form-control" id="inputName" name="name">@* 表單的name屬性一定要 *@@* for="inputName"==id="inputName" *@
             </div>
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">電子郵件</label>
@@ -32,13 +32,13 @@
 
 @section Scripts{
     <script>
-        const btn = document.querySelector('#buttonSubmit');
-        const divMessage = document.querySelector('#div1');
+        const btn = document.querySelector('#buttonSubmit');//找到控制summit按鈕
+        const divMessage = document.querySelector('#div1'); //找到div1輸出框
         //const name = document.querySelector('#inputName');
         //const email = document.querySelector('#inputEmail');
         //const age = document.querySelector('#inputAge');
-        btn.addEventListener('click', event => {
-            event.preventDefault();//將滑鼠點到的物件取消預設功能 在此是取消submit跳轉頁面的功能用
+        btn.addEventListener('click', event => {//把使用者輸入的資料
+            event.preventDefault();//將滑鼠點到的物件取消預設功能 在此是取消submit送出資料頁面的功能用
 
             //建立Ajax物件
             //const xhr =  new XMLHttpRequest();
@@ -47,16 +47,18 @@
             //接收資料
             //xhr.addEventListener('load',()=>{
             //    const data = xhr.responseText;
-            //    divMessage.innerHTML = data;
+            //    divMessage.innerHTML = data;//將資料輸出到#div1
             //})
 
             //======================================================
             //建立FormData物件
             //const formData = new FormData(document.querySelector('#memberForm'));
             //發出要求
+
             //xhr.open('POST', '@Url.Content("~/api/register")');
-            //xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            //xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//需要手動加入
             //xhr.send('name=Jack&age=30&email=Jack@company.com');
+
             //xhr.send(`name=${name.value}&age=${age.value}&email=${email.value}`);
             //xhr.send(formData);
 
